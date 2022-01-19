@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { customMaxLength } from '../custom-validators/custom-max-length-validator';
-import { customMinLength } from '../custom-validators/custom-min-length-validator';
-import { customPatternForEmail } from '../custom-validators/custom-pattern-email-validator ';
-import { customPatternForPassword } from '../custom-validators/custom-pattern-password-validator ';
+import { customMaxLengthValidator } from '../custom-validators/custom-max-length-validator';
+import { customMinLengthValidator } from '../custom-validators/custom-min-length-validator';
+import { customPatternValidatorForEmail } from '../custom-validators/custom-pattern-email-validator ';
+import { customPatternValidatorForPassword } from '../custom-validators/custom-pattern-password-validator ';
 import { customRequiredValidator } from '../custom-validators/custom-required.validator';
 
 @Component({
@@ -14,35 +14,27 @@ import { customRequiredValidator } from '../custom-validators/custom-required.va
 export class AuthenticationComponent implements OnInit {
   constructor() {}
 
-  autForm!: FormGroup;
-  userName!: FormControl;
-  userPassword!: FormControl;
+  authForm!: FormGroup;
 
   ngOnInit(): void {
-    this.autForm = new FormGroup({
+    this.authForm = new FormGroup({
       userName: new FormControl('', [
         customRequiredValidator(),
-        customMinLength(4),
-        customMaxLength(18),
-        customPatternForEmail('gmail.com'),
+        customMinLengthValidator(4),
+        customMaxLengthValidator(18),
+        customPatternValidatorForEmail(),
       ]),
       userPassword: new FormControl('', [
         customRequiredValidator(),
-        customMinLength(8),
-        customMaxLength(12),
-        customPatternForPassword(),
+        customMinLengthValidator(8),
+        customMaxLengthValidator(12),
+        customPatternValidatorForPassword(),
       ]),
     });
-
-    this.autForm.controls['userName'].statusChanges.subscribe(
-      (status: string) => {
-        console.log(status);
-      }
-    );
   }
 
   getErrorMsg(formControlName: string, error: string) {
-    const fc = this.autForm.get(formControlName);
+    const fc = this.authForm.get(formControlName);
     if (fc!.hasError(error)) {
       return fc!.errors![error].errMsg;
     }

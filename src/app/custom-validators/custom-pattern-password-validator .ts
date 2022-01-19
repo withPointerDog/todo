@@ -1,16 +1,14 @@
 import { AbstractControl, ValidatorFn } from '@angular/forms';
 
-export function customPatternForPassword(): ValidatorFn {
-  return function checkInPassword(
-    control: AbstractControl
-  ): { [key: string]: any } | null {
-    return isNaN(parseInt(control.value))
-      ? {
-          patternPassword: {
+export function customPatternValidatorForPassword(): ValidatorFn {
+  return (control: AbstractControl): { [key: string]: any } | null =>
+    /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$/gm.test(control.value)
+      ? null
+      : {
+          pattern: {
             valid: false,
-            errMsg: `Пароль должен содержать цифры`,
+            errMsg:
+              'The password must be at least one uppercase letter, one lowercase letter and one number',
           },
-        }
-      : null;
-  };
+        };
 }
