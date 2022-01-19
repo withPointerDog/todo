@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="flexContainer">
+    <h1 class="mat-display-3">YourTodo</h1>
+    <form [formGroup]="authenticationForm" novalidate>
+      <mat-form-field appearance="fill">
+        <input
+          class="size"
+          matInput
+          placeholder="Email"
+          formControlName="userName"
+        />
+        <mat-error
+          *ngIf="authenticationForm.get('userName')!.hasError('required')"
+          >{{ getErrorMsg("userName", "required") }}</mat-error
+        >
+        <mat-error
+          *ngIf="authenticationForm.get('userName')!.hasError('minLength')"
+          >{{ getErrorMsg("userName", "minLength") }}</mat-error
+        >
+        <mat-error
+          *ngIf="authenticationForm.get('userName')!.hasError('maxLength')"
+          >{{ getErrorMsg("userName", "maxLength") }}</mat-error
+        >
+        <mat-error
+          *ngIf="authenticationForm.get('userName')!.hasError('pattern')"
+          >{{ getErrorMsg("userName", "pattern") }}</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <input
+          class="size"
+          type="password"
+          matInput
+          placeholder="Password"
+          formControlName="userPassword"
+        />
+        <mat-error
+          *ngIf="authenticationForm.get('userPassword')!.hasError('required')"
+          >{{ getErrorMsg("userPassword", "required") }}</mat-error
+        >
+        <mat-error
+          *ngIf="authenticationForm.get('userPassword')!.hasError('minLength')"
+          >{{ getErrorMsg("userPassword", "minLength") }}</mat-error
+        >
+        <mat-error
+          *ngIf="authenticationForm.get('userPassword')!.hasError('maxLength')"
+          >{{ getErrorMsg("userPassword", "maxLength") }}</mat-error
+        >
+        <mat-error
+          *ngIf="
+            authenticationForm.get('userPassword')!.hasError('patternPassword')
+          "
+          >{{ getErrorMsg("userPassword", "patternPassword") }}</mat-error
+        >
+      </mat-form-field>
+      <button class="size mat-display-1" mat-raised-button color="primary">
+        Log in
+      </button>
+    </form>
+    <!-- <pre class="mat-display-1">{{
+      authenticationForm.get("userName")!.errors | json
+    }}</pre> -->
+  </div>
+</div>
+
+<!-- <mat-error *ngIf="authenticationForm.get('userName')!.errors!['required']">{{ authenticationForm.get('userName')!.errors!['required']!.errMsg }}</mat-error> -->
