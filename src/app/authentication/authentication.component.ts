@@ -14,12 +14,12 @@ import { customRequiredValidator } from '../custom-validators/custom-required.va
 export class AuthenticationComponent implements OnInit {
   constructor() {}
 
-  authenticationForm!: FormGroup;
+  autForm!: FormGroup;
   userName!: FormControl;
   userPassword!: FormControl;
 
   ngOnInit(): void {
-    this.authenticationForm = new FormGroup({
+    this.autForm = new FormGroup({
       userName: new FormControl('', [
         customRequiredValidator(),
         customMinLength(4),
@@ -34,7 +34,7 @@ export class AuthenticationComponent implements OnInit {
       ]),
     });
 
-    this.authenticationForm.controls['userName'].statusChanges.subscribe(
+    this.autForm.controls['userName'].statusChanges.subscribe(
       (status: string) => {
         console.log(status);
       }
@@ -42,7 +42,7 @@ export class AuthenticationComponent implements OnInit {
   }
 
   getErrorMsg(formControlName: string, error: string) {
-    const fc = this.authenticationForm.get(formControlName);
+    const fc = this.autForm.get(formControlName);
     if (fc!.hasError(error)) {
       return fc!.errors![error].errMsg;
     }
