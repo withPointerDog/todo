@@ -5,21 +5,30 @@ import { MaterialModule } from './material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { ReactiveFormsModule } from '@angular/forms';
-// import { CustomValidatorsDirective } from './custom-validators/custom-validators.directive';
+import { RouterModule } from '@angular/router';
+import { TodoListComponent } from './todo-list/todo-list.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthenticationComponent,
-    // CustomValidatorsDirective
+    TodoListComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    RouterModule.forRoot([
+      { path: 'authentication', component: AuthenticationComponent },
+      { path: 'todo-list', component: TodoListComponent },
+      { path: '', redirectTo: '/authentication', pathMatch: 'full' },
+      { path: '**', component: PageNotFoundComponent },
+    ]),
     ReactiveFormsModule,
     MaterialModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
