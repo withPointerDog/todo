@@ -5,9 +5,9 @@ import { MaterialModule } from './material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { RoutingModule } from './routing/routing.module';
 
 @NgModule({
   declarations: [
@@ -19,14 +19,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot([
-      { path: 'authentication', component: AuthenticationComponent },
-      { path: 'todo-list', component: TodoListComponent },
-      { path: '', redirectTo: '/authentication', pathMatch: 'full' },
-      { path: '**', component: PageNotFoundComponent },
-    ]),
     ReactiveFormsModule,
     MaterialModule,
+    RoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
