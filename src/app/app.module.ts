@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RoutingModule } from './routing/routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { RoutingModule } from './routing/routing.module';
     ReactiveFormsModule,
     MaterialModule,
     RoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
