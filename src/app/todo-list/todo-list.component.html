@@ -1,2 +1,34 @@
-<p class="mat-display-3">todo-list works!</p>
-<pre>{{todoList | json}}</pre>
+<div class="container">
+  <div class="sidebar">
+    <app-search-panel></app-search-panel>
+    <app-category-list></app-category-list>
+  </div>
+  <div class="content">
+    <app-new-todo></app-new-todo>
+    <div *ngFor="let item of todos" class="todo_list">
+      <div>
+        <div class="close">
+          <h1>{{ item.title }}</h1>
+          <button mat-button color="warn" type="button">
+            <span>X</span>
+          </button>
+        </div>
+        <span>{{ item.description | json}}</span>
+        <p>Category</p>
+        <button
+          type="submit"
+          form="data"
+          value="#"
+          mat-raised-button
+          color="primary"
+        >
+          Compete
+        </button>
+        <button form="data" value="#" mat-raised-button color="primary">
+          Edit
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- <div>{{ todos | json }}</div> -->
+</div>

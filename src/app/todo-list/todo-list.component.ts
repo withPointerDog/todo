@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+// import { map } from 'rxjs'; Как реализовать + pipe
 import { TodoService } from '../services/todo.service';
+import { todosInterface } from './todo';
 
 @Component({
   selector: 'app-todo-list',
@@ -8,13 +9,14 @@ import { TodoService } from '../services/todo.service';
   styleUrls: ['./todo-list.component.scss'],
 })
 export class TodoListComponent implements OnInit {
-  todoList: Array<object> = [];
-  constructor(private http: HttpClient, private todoService: TodoService) {}
+  todos: Array<todosInterface> = [];
+
+  constructor(private todoService: TodoService) {}
 
   ngOnInit(): void {
-    this.todoService.getTodo().subscribe((todoList: Array<object>) => {
-      console.log('result', JSON.stringify(todoList));
-      this.todoList = todoList;
+    this.todoService.getTodo().subscribe((todos: Array<todosInterface>) => {
+      this.todos = todos;
+      this.todoService.setValueTodoList(this.todos);
     });
   }
 }

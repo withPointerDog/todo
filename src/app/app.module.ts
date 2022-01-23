@@ -9,13 +9,19 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RoutingModule } from './routing/routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { CategoryListComponent } from './category-list/category-list.component';
+import { SearchPanelComponent } from './search-panel/search-panel.component';
+import { NewTodoComponent } from './new-todo/new-todo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthenticationComponent,
     TodoListComponent,
+    CategoryListComponent,
     PageNotFoundComponent,
+    SearchPanelComponent,
+    NewTodoComponent,
   ],
   imports: [
     BrowserModule,

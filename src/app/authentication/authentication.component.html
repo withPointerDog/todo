@@ -41,10 +41,9 @@
           *ngIf="authForm.get('userPassword')!.hasError('maxLength')"
           >{{ getErrorMsg("userPassword", "maxLength") }}</mat-error
         >
-        <mat-error
-          *ngIf="authForm.get('userPassword')!.hasError('pattern')"
-          >{{ getErrorMsg("userPassword", "pattern") }}</mat-error
-        >
+        <mat-error *ngIf="authForm.get('userPassword')!.hasError('pattern')">{{
+          getErrorMsg("userPassword", "pattern")
+        }}</mat-error>
       </mat-form-field>
       <button
         class="size"
