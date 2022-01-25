@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-// import { map } from 'rxjs'; Как реализовать + pipe
 import { TodoService } from '../services/todo.service';
 import { ITodo } from './todo';
 
@@ -15,9 +14,7 @@ export class TodoListComponent implements OnInit {
   constructor(private todoService: TodoService) {}
 
   ngOnInit(): void {
-    console.log('asd');
     this.todos$ = this.todoService.getTodos();
-    console.log('qwqwqw');
   }
 }
 

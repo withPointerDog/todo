@@ -6,14 +6,15 @@
   <div class="content">
     <app-new-todo></app-new-todo>
     <div class="todo_list">
-      <div>
+      <!-- TODO: create a separate component for todo item -->
+      <!-- <div>
         <div class="close">
-          <h1>{{ '' }}</h1>
+          <h1>{{ "" }}</h1>
           <button mat-button color="warn" type="button">
             <span>X</span>
           </button>
         </div>
-        <span>{{ '' }}</span>
+        <span>{{ "" }}</span>
         <p>Category</p>
         <button
           type="submit"
@@ -27,8 +28,12 @@
         <button form="data" value="#" mat-raised-button color="primary">
           Edit
         </button>
-      </div>
+      </div> -->
+      <ng-container *ngFor="let todo of todos$ | async">
+        <mat-card>
+          {{ todo | json }}
+        </mat-card>
+      </ng-container>
     </div>
-  </div> -->
-  <!-- <div>{{ todos | json }}</div> -->
+  </div>
 </div>
