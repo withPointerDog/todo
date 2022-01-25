@@ -15,14 +15,14 @@ export class TodoService {
   //   return this.http.get(environment.restApiUrl);
   // }
 
-  // setValueTodoList(arr: Array<object>): void {
-  //   arr.map(
-  //     (obj: any) => (
-  //       (obj.description = this.newPropertyForTodo[0]),
-  //       (obj.category = this.newPropertyForTodo[1])
-  //     )
-  //   );
-  // }
+  setValueTodoList(arr: Array<object>): void {
+    arr.map(
+      (obj: any) => (
+        (obj.description = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum sit neque labore autem, excepturi velit eveniet tempore modi similique inventore saepe dolorum accusamus eius minima fugit doloribus? Deserunt esse accusantium repellat exercitationem quam, consequatur, harum mollitia maxime delectus possimus, molestias accusamus saepe excepturi nam iure distinctio! Dolor sed labore eius laudantium magni facilis quibusdam illo quo exercitationem. Ex, voluptas accusamus quo laboriosam nihil deleniti sit porro dolor laborum unde officia sed quibusdam repellendus ab totam adipisci ea, autem dicta quas ratione vero officiis eos facere soluta. Quibusdam corporis autem ad sequi, expedita inventore quia quaerat itaque nulla quo! A, illum?'),
+        (obj.category = 'general')
+      )
+    );
+  }
 
 
   getTodos(): Observable<ITodo[]> {
@@ -41,6 +41,7 @@ export class TodoService {
     return this.http.get<ITodo[]>(environment.restApiUrl).pipe(
       tap((todos) => {
         console.log(todos);
+        this.setValueTodoList(todos);
         this.todos$.next(todos); // TODO: create transform method
       }),
       catchError((error) => {

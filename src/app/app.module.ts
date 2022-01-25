@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CategoryListComponent } from './category-list/category-list.component';
 import { SearchPanelComponent } from './search-panel/search-panel.component';
 import { NewTodoComponent } from './new-todo/new-todo.component';
+import { CategoryDirective } from './category.directive';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { NewTodoComponent } from './new-todo/new-todo.component';
     PageNotFoundComponent,
     SearchPanelComponent,
     NewTodoComponent,
+    CategoryDirective,
   ],
   imports: [
     BrowserModule,

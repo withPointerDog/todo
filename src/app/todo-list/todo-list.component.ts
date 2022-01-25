@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
-// import { map } from 'rxjs'; Как реализовать + pipe
 import { TodoService } from '../services/todo.service';
 import { ITodo } from './todo';
+import { CategoryDirective } from '../category.directive';
 
 @Component({
   selector: 'app-todo-list',
@@ -11,14 +11,18 @@ import { ITodo } from './todo';
 })
 export class TodoListComponent implements OnInit {
   todos$!: Observable<ITodo[]>;
-
-  constructor(private todoService: TodoService) {}
+  // @ViewChild('myname') p!: ElementRef;
+  constructor(private todoService: TodoService, private el: ElementRef) {}
 
   ngOnInit(): void {
     console.log('asd');
     this.todos$ = this.todoService.getTodos();
-    console.log('qwqwqw');
+    console.log(this.todos$);
   }
+
+  // ngAfterViedInit(): void {
+  //   console.log(this.p.nativeElement);
+  // }
 }
 
 // асингпайп в шаблоне

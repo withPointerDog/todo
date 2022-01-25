@@ -5,16 +5,16 @@
   </div>
   <div class="content">
     <app-new-todo></app-new-todo>
-    <div class="todo_list">
+    <div class="todo_list" *ngFor="let arr of todos$ | async">
       <div>
         <div class="close">
-          <h1>{{ '' }}</h1>
+          <h1>{{ arr.title }}</h1>
           <button mat-button color="warn" type="button">
             <span>X</span>
           </button>
         </div>
-        <span>{{ '' }}</span>
-        <p>Category</p>
+        <span>{{ arr.description }}</span>
+        <p #myname appCategory>{{ arr.category }}</p>
         <button
           type="submit"
           form="data"
@@ -29,6 +29,5 @@
         </button>
       </div>
     </div>
-  </div> -->
-  <!-- <div>{{ todos | json }}</div> -->
+  </div>
 </div>
