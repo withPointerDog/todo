@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 // import { map } from 'rxjs'; Как реализовать + pipe
 import { TodoService } from '../services/todo.service';
-import { todosInterface } from './todo';
+import { ITodo } from './todo';
 
 @Component({
   selector: 'app-todo-list',
@@ -9,14 +10,15 @@ import { todosInterface } from './todo';
   styleUrls: ['./todo-list.component.scss'],
 })
 export class TodoListComponent implements OnInit {
-  todos: Array<todosInterface> = [];
+  todos$!: Observable<ITodo[]>;
 
   constructor(private todoService: TodoService) {}
 
   ngOnInit(): void {
-    this.todoService.getTodo().subscribe((todos: Array<todosInterface>) => {
-      this.todos = todos;
-      this.todoService.setValueTodoList(this.todos);
-    });
+    console.log('asd');
+    this.todos$ = this.todoService.getTodos();
+    console.log('qwqwqw');
   }
 }
+
+// асингпайп в шаблоне

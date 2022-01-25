@@ -5,15 +5,15 @@
   </div>
   <div class="content">
     <app-new-todo></app-new-todo>
-    <div *ngFor="let item of todos" class="todo_list">
+    <div class="todo_list">
       <div>
         <div class="close">
-          <h1>{{ item.title }}</h1>
+          <h1>{{ '' }}</h1>
           <button mat-button color="warn" type="button">
             <span>X</span>
           </button>
         </div>
-        <span>{{ item.description | json}}</span>
+        <span>{{ '' }}</span>
         <p>Category</p>
         <button
           type="submit"
@@ -29,6 +29,6 @@
         </button>
       </div>
     </div>
-  </div>
+  </div> -->
   <!-- <div>{{ todos | json }}</div> -->
 </div>
