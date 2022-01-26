@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { categoryInterface } from './category';
+import { CategoryService } from '../services/category.service';
+import { ICategory } from './category';
 
 @Component({
   selector: 'app-category-list',
@@ -7,29 +8,11 @@ import { categoryInterface } from './category';
   styleUrls: ['./category-list.component.scss'],
 })
 export class CategoryListComponent implements OnInit {
-  categories: Array<categoryInterface> = [
-    {
-      title: 'Work',
-      color: '',
-    },
-    {
-      title: 'GYM',
-      color: '',
-    },
-    {
-      title: 'Learn',
-      color: '',
-    },
-    {
-      title: 'Dogs',
-      color: '',
-    },
-    {
-      title: 'Auto',
-      color: '',
-    },
-  ];
-  constructor() {}
+  categories!: Array<ICategory>;
+  constructor(private categoryService: CategoryService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.categories = this.categoryService.categories;
+    // console.log(this.customDirective.link);
+  }
 }
