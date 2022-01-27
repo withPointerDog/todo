@@ -5,30 +5,9 @@
   </div>
   <div class="content">
     <app-new-todo></app-new-todo>
-    <div class="todo_list">
-      <div>
-        <div class="close">
-          <h1>{{ '' }}</h1>
-          <button mat-button color="warn" type="button">
-            <span>X</span>
-          </button>
-        </div>
-        <span>{{ '' }}</span>
-        <p>Category</p>
-        <button
-          type="submit"
-          form="data"
-          value="#"
-          mat-raised-button
-          color="primary"
-        >
-          Compete
-        </button>
-        <button form="data" value="#" mat-raised-button color="primary">
-          Edit
-        </button>
-      </div>
-    </div>
-  </div> -->
-  <!-- <div>{{ todos | json }}</div> -->
+    <ng-container *ngFor="let todo of todos$ | async">
+      <app-todo-item [todo]="todo" [appHighlightItem]="'green'"></app-todo-item>
+    </ng-container>
+  </div>
 </div>
+<!--  [appHighlightItem]="red" -->

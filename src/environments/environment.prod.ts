@@ -1,4 +1,4 @@
-export const environment = {
+export const ENV = {
   production: true,
-  restApiUrl: 'https://jsonplaceholder.typicode.com/todos',
+  restApiUrl: 'https://jsonplaceholder.typicode.com/users/2/todos',
 };
