@@ -7,12 +7,21 @@ import { ITodo } from '../todo-list/todo';
   templateUrl: './todo-item.component.html',
   styleUrls: ['./todo-item.component.scss'],
 })
-export class TodoItemsComponent implements OnInit {
-  todos$!: Observable<ITodo[]>;
+export class TodoItemComponent implements OnInit {
   @Input() todo: any;
+  todos$!: Observable<ITodo[]>;
   constructor(private todoService: TodoService) {}
 
   ngOnInit(): void {
     this.todos$ = this.todoService.getTodos();
   }
 }
+
+//   private setHighLight(color: string) {
+//     // this.el.nativeElement.style.backgroundColor = color;
+//     this.renderer.setStyle(this.el.nativeElement, 'color', color);
+// }
+// @HostListener('mouseover') mouseEnter() {
+// this.setHighLight('red');
+// }
+// @Input() color: any = 'red';

@@ -13,7 +13,8 @@ import { CategoryListComponent } from './category-list/category-list.component';
 import { SearchPanelComponent } from './search-panel/search-panel.component';
 import { NewTodoComponent } from './new-todo/new-todo.component';
 import { CategoryDirective } from './category-list/category.directive';
-import { TodoItemsComponent } from './todo-item/todo-item.component';
+import { HighlightItemDirective } from './todo-item/highlight-item.directive';
+import { TodoItemComponent } from './todo-item/todo-item.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { TodoItemsComponent } from './todo-item/todo-item.component';
     SearchPanelComponent,
     NewTodoComponent,
     CategoryDirective,
-    TodoItemsComponent,
+    TodoItemComponent,
+    HighlightItemDirective,
   ],
   imports: [
     BrowserModule,
