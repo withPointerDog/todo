@@ -13,7 +13,7 @@ import { CategoryListComponent } from './category-list/category-list.component';
 import { SearchPanelComponent } from './search-panel/search-panel.component';
 import { NewTodoComponent } from './new-todo/new-todo.component';
 import { CategoryDirective } from './category-list/category.directive';
-import { HighlightItemDirective } from './todo-item/highlight-item.directive';
+import { HighlightItemDirective } from './shared/directives/highlight-item.directive';
 import { TodoItemComponent } from './todo-item/todo-item.component';
 
 @NgModule({

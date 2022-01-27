@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { customMaxLengthValidator } from '../custom-validators/custom-max-length-validator';
-import { customMinLengthValidator } from '../custom-validators/custom-min-length-validator';
-import { customPatternValidatorForEmail } from '../custom-validators/custom-pattern-email-validator ';
-import { customPatternValidatorForPassword } from '../custom-validators/custom-pattern-password-validator ';
-import { customRequiredValidator } from '../custom-validators/custom-required.validator';
+import { customMaxLengthValidator } from '../shared/validators/custom-max-length-validator';
+import { customMinLengthValidator } from '../shared/validators/custom-min-length-validator';
+import { customPatternValidatorForEmail } from '../shared/validators/custom-pattern-email-validator ';
+import { customPatternValidatorForPassword } from '../shared/validators/custom-pattern-password-validator ';
+import { customRequiredValidator } from '../shared/validators/custom-required.validator';
 
 @Component({
   selector: 'app-authentication',
@@ -12,8 +12,6 @@ import { customRequiredValidator } from '../custom-validators/custom-required.va
   styleUrls: ['./authentication.component.scss'],
 })
 export class AuthenticationComponent implements OnInit {
-  constructor() {}
-
   authForm!: FormGroup;
 
   ngOnInit(): void {
@@ -33,6 +31,7 @@ export class AuthenticationComponent implements OnInit {
     });
   }
 
+  // TODO: Refactor
   getErrorMsg(formControlName: string, error: string) {
     const fc = this.authForm.get(formControlName);
     if (fc!.hasError(error)) {

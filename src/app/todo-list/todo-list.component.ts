@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { TodoService } from '../services/todo.service';
-import { ITodo } from './todo';
-import { HighlightItemDirective } from '../todo-item/highlight-item.directive';
-
+import { TodoService } from '../shared/services/todo.service';
+import { ITodo } from '../shared/models/todo.model';
 
 @Component({
   selector: 'app-todo-list',

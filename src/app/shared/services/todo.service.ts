@@ -10,7 +10,7 @@ import {
   throwError,
 } from 'rxjs';
 import { ENV } from 'src/environments/environment';
-import { ITodo } from '../todo-list/todo';
+import { ITodo } from '../models/todo.model';
 
 @Injectable({
   providedIn: 'root',
@@ -43,9 +43,10 @@ export class TodoService {
     );
   }
 
-  transformTodoListItems(arr: Array<ITodo>): void {
-    arr.forEach(
-      (obj: ITodo) => ((obj.description = ''), (obj.category = 'general'))
-    )
+  transformTodoListItems(todos: Array<ITodo>): void {
+    todos.forEach((todo: ITodo) => {
+      todo.description = '';
+      todo.categoryId = 0;
+    });
   }
 }

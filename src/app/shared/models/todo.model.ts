@@ -1,8 +1,10 @@
+import { ICategory } from './category.model';
+
 export interface ITodo {
-  userId: number;
   id: number;
+  userId: number;
   title: string;
   completed: boolean;
   description: string;
-  category: string;
+  categoryId: ICategory['id'];
 }
