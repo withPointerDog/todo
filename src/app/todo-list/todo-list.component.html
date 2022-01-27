@@ -6,7 +6,7 @@
   <div class="content">
     <app-new-todo></app-new-todo>
     <ng-container *ngFor="let todo of todos$ | async">
-      <app-todo-item [todo]="todo" [appHighlightItem]="'red'"></app-todo-item>
+      <app-todo-item [todo]="todo" [appHighlightItem]="todo.categoryId"></app-todo-item>
     </ng-container>
   </div>
 </div>

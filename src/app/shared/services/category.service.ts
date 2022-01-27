@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
-import { ICategory } from '../category-list/category';
+import { ICategory } from '../models/category.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CategoryService {
-  categories: Array<ICategory> = [
+  categories: ICategory[] = [
     {
+      id: 0,
       title: 'Work',
       color: '',
     },

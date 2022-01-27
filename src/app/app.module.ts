@@ -12,7 +12,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { CategoryListComponent } from './category-list/category-list.component';
 import { SearchPanelComponent } from './search-panel/search-panel.component';
 import { NewTodoComponent } from './new-todo/new-todo.component';
-import { CategoryDirective } from './category-list/category.directive';
 import { HighlightItemDirective } from './shared/directives/highlight-item.directive';
 import { TodoItemComponent } from './todo-item/todo-item.component';
 
@@ -25,7 +24,6 @@ import { TodoItemComponent } from './todo-item/todo-item.component';
     PageNotFoundComponent,
     SearchPanelComponent,
     NewTodoComponent,
-    CategoryDirective,
     TodoItemComponent,
     HighlightItemDirective,
   ],
