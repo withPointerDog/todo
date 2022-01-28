@@ -33,5 +33,4 @@ export class CategoryService {
       color: Color.DARK_BLUE,
     },
   ];
-  constructor() {}
 }

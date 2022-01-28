@@ -1,26 +1,26 @@
-<div class="todo_list">
-  <div>
-    <div class="close">
-      <h1 class="test">{{ todo.title }}</h1>
-      <button mat-button color="warn" type="button">
-        <span>X</span>
+<mat-card class="todo_card">
+  <mat-card-header class="header_card_container">
+    <mat-card-title>{{ todo.title }}</mat-card-title>
+    <button mat-button color="warn" type="button">
+      <span>X</span>
+    </button>
+  </mat-card-header>
+  <mat-card-content>{{ todo.description }}</mat-card-content>
+  <mat-card-footer
+    ><p>{{ todo.categoryId }}</p>
+    <mat-card-actions class="button_group">
+      <button
+        type="submit"
+        form="data"
+        value="#"
+        mat-raised-button
+        color="primary"
+      >
+        Complite
       </button>
-    </div>
-    <span>{{ todo.description }}</span>
-    <!-- TODO: create pipe -->
-    <!-- <p>{{ todo.category }}</p> -->
-    <button
-      type="submit"
-      form="data"
-      value="#"
-      mat-raised-button
-      color="primary"
-    >
-      Complite
-    </button>
-    <button form="data" value="#" mat-raised-button color="primary">
-      Edit
-    </button>
-  </div>
-</div>
-<!--remove todolist class +material-->
+      <button form="data" value="#" mat-raised-button color="primary">
+        Edit
+      </button>
+    </mat-card-actions>
+  </mat-card-footer>
+</mat-card>

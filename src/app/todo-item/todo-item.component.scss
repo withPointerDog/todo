@@ -1,32 +1,25 @@
-.todo_list {
+.todo_card {
   border: solid #3f51b544;
-  width: 100%;
   border-radius: 20px;
-  margin: auto;
   margin-top: 20px;
-  div {
-    padding: 10px 15px;
-    h1 {
-      padding-left: 20px;
-    }
-  }
-  p {
-    margin-top: 20px;
-    font-size: medium;
-    margin-left: 10px;
-  }
-  button {
-    margin-left: 10px;
-    margin-top: 10px;
-  }
-  .close {
+  padding-bottom: 0px;
+  .header_card_container {
     display: flex;
     justify-content: space-between;
-    padding: 0;
     button {
       color: rgba(241, 42, 42, 0.733);
       font-size: 25px;
       height: 0;
+    }
+  }
+  mat-card-content {
+    padding: 12px;
+    padding-bottom: 0;
+  }
+  mat-card-footer {
+    margin: 0 10px;
+    p {
+      font-size: medium;
     }
   }
 }
