@@ -1,6 +1,6 @@
 <mat-list class="container" role="list">
-  <mat-list-item role="listitem" *ngFor="let objCategory of categories">
+  <mat-list-item role="listitem" *ngFor="let category of categories">
     <mat-icon class="material-icons-outlined"> visibility </mat-icon>
-    <a #test>{{ objCategory.title }}</a>
+    <a>{{ category.title }}</a>
   </mat-list-item>
 </mat-list>

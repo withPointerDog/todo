@@ -7,9 +7,9 @@ export interface ICategory {
 }
 
 export enum CategoryName {
-  Work,
-  GYM,
-  Learn,
-  Dogs,
-  Auto,
+  WORK = 'Work',
+  GYM = 'GYM',
+  LEARN = 'Learn',
+  DOGS = 'Dogs',
+  AUTO = 'Auto',
 }
