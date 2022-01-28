@@ -1,7 +1,7 @@
 import { Color } from './color.enum';
 
 export interface ICategory {
-  id: number;
+  id: CategoryId;
   title: CategoryName;
   color: Color;
 }
@@ -12,4 +12,12 @@ export enum CategoryName {
   LEARN = 'Learn',
   DOGS = 'Dogs',
   AUTO = 'Auto',
+}
+
+export enum CategoryId {
+  WORK,
+  GYM,
+  LEARN,
+  DOGS,
+  AUTO,
 }

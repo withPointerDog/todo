@@ -5,28 +5,41 @@ import {
   Input,
   Renderer2,
 } from '@angular/core';
+import { ICategory } from '../models/category.model';
+import { Color } from '../models/color.enum';
+import { CategoryService } from '../services/category.service';
 
 @Directive({
   selector: '[appHighlightItem]',
 })
 export class HighlightItemDirective {
-  @Input('appHighlightItem') categoryId!: number;
+  @Input('appHighlightItem') set categoryId(id: ICategory['id']) {
+    const color = this.categorySvc.getCategoryColorById(id);
+    // if (color) {
+    //   this.color = color;
+    // } else {
+    //   this.color = Color.DARK_BLUE;
+    // }
+    this.color = color ? color : Color.WHITE;
+  }
 
-  // constructor(private el: ElementRef, private renderer: Renderer2) {}
+  private color!: ICategory['color'];
 
-  // @HostListener('mouseenter') mouseEnter() {
-  //   this.setHighLight(this.color);
-  // }
+  constructor(
+    private el: ElementRef,
+    private renderer: Renderer2,
+    private categorySvc: CategoryService
+  ) {}
 
-  // @HostListener('mouseleave') mouseOut() {
-  //   this.setHighLight('initial');
-  // }
+  @HostListener('mouseenter') mouseEnter() {
+    this.setHighLight(this.color);
+  }
 
-  // setHighLight(value: string) {
-  //   this.renderer.setStyle(this.el.nativeElement, 'color', value);
-  // }
+  @HostListener('mouseleave') mouseOut() {
+    this.setHighLight(Color.WHITE);
+  }
 
-  // ngOnInit() {
-  //   console.log('Directive work`s');
-  // }
+  setHighLight(color: Color) {
+    this.renderer.setStyle(this.el.nativeElement, 'backgroundColor', color);
+  }
 }

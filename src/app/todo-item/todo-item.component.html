@@ -1,4 +1,4 @@
-<mat-card class="todo_card">
+<mat-card class="todo_card" [appHighlightItem]="todo.categoryId">
   <mat-card-header class="header_card_container">
     <mat-card-title>{{ todo.title }}</mat-card-title>
     <button mat-button color="warn" type="button">
@@ -24,3 +24,5 @@
     </mat-card-actions>
   </mat-card-footer>
 </mat-card>
+
+<!-- create custom pipe (categoryId) => cagegory.title -->

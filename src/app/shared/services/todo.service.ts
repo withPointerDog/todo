@@ -11,12 +11,14 @@ import {
 } from 'rxjs';
 import { ENV } from 'src/environments/environment';
 import { ITodo } from '../models/todo.model';
+import { ICategory } from '../models/category.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TodoService {
   todos$ = new BehaviorSubject<ITodo[]>([]);
+  idFromCategoryes!: ICategory['id'];
   constructor(private http: HttpClient) {}
 
   getTodos(): Observable<ITodo[]> {
