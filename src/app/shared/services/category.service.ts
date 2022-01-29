@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CategoryId, CategoryName, ICategory } from '../models/category.model';
+import { CategoryTitle, ICategory } from '../models/category.model';
 import { Color } from '../models/color.enum';
 
 @Injectable({
@@ -9,27 +9,27 @@ export class CategoryService {
   categories: ICategory[] = [
     {
       id: 0,
-      title: CategoryName.WORK,
+      title: CategoryTitle.WORK,
       color: Color.GREEN,
     },
     {
       id: 1,
-      title: CategoryName.GYM,
+      title: CategoryTitle.GYM,
       color: Color.RED,
     },
     {
       id: 2,
-      title: CategoryName.LEARN,
+      title: CategoryTitle.LEARN,
       color: Color.BLUE,
     },
     {
       id: 3,
-      title: CategoryName.DOGS,
+      title: CategoryTitle.DOGS,
       color: Color.VIOLET,
     },
     {
       id: 4,
-      title: CategoryName.AUTO,
+      title: CategoryTitle.AUTO,
       color: Color.DARK_BLUE,
     },
   ];

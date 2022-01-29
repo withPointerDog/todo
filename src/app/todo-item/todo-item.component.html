@@ -6,8 +6,8 @@
     </button>
   </mat-card-header>
   <mat-card-content>{{ todo.description }}</mat-card-content>
-  <mat-card-footer
-    ><p>{{ todo.categoryId }}</p>
+  <mat-card-footer>
+    <p>{{ todo.categoryId | getCategoryTitle: todo.categoryId }}</p>
     <mat-card-actions class="button_group">
       <button
         type="submit"
@@ -24,5 +24,3 @@
     </mat-card-actions>
   </mat-card-footer>
 </mat-card>
-
-<!-- create custom pipe (categoryId) => cagegory.title -->
