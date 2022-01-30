@@ -41,4 +41,12 @@ export class CategoryService {
     }
     return null;
   }
+
+  getCategoryTitleById(id: ICategory['id']): ICategory['title'] | null {
+    const category = this.categories.find((category) => category.id === id);
+    if (category) {
+      return category.title;
+    }
+    return null;
+  }
 }

@@ -14,7 +14,7 @@ import { SearchPanelComponent } from './search-panel/search-panel.component';
 import { NewTodoComponent } from './new-todo/new-todo.component';
 import { HighlightItemDirective } from './shared/directives/highlight-item.directive';
 import { TodoItemComponent } from './todo-item/todo-item.component';
-import { getCategoryTitlePipe } from './shared/pipes/get-category-title.pipe';
+import { CategoryTitlePipe } from './shared/pipes/category-title.pipe';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,7 @@ import { getCategoryTitlePipe } from './shared/pipes/get-category-title.pipe';
     NewTodoComponent,
     TodoItemComponent,
     HighlightItemDirective,
-    getCategoryTitlePipe,
+    CategoryTitlePipe,
   ],
   imports: [
     BrowserModule,
