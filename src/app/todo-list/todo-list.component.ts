@@ -10,9 +10,9 @@ import { ITodo } from '../shared/models/todo.model';
 })
 export class TodoListComponent implements OnInit {
   todos$!: Observable<ITodo[]>;
-  constructor(private todoService: TodoService) {}
+  constructor(public todoSVC: TodoService) {}
 
   ngOnInit(): void {
-    this.todos$ = this.todoService.getTodos();
+    this.todos$ = this.todoSVC.getTodos();
   }
 }

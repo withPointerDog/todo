@@ -1,7 +1,12 @@
 <mat-card class="todo_card" [appHighlightItem]="todo.categoryId">
   <mat-card-header class="header_card_container">
     <mat-card-title>{{ todo.title }}</mat-card-title>
-    <button mat-button color="warn" type="button">
+    <button
+      (click)="this.todoSVC.removeTodo(todo.id)"
+      mat-button
+      color="warn"
+      type="button"
+    >
       <span>X</span>
     </button>
   </mat-card-header>
@@ -9,16 +14,23 @@
   <mat-card-footer>
     <p>{{ todo.categoryId | categoryTitle }}</p>
     <mat-card-actions class="button_group">
+      <p *ngIf="todo.completed">{{ todo.completed }}</p>
       <button
+        (click)="this.todoSVC.changeTodoStatus(todo.id)"
+        mat-raised-button
         type="submit"
         form="data"
         value="#"
-        mat-raised-button
         color="primary"
       >
         Complite
       </button>
-      <button form="data" value="#" mat-raised-button color="primary">
+      <button
+        mat-raised-button
+        type="button"
+        color="primary"
+        routerLink="/todo-list"
+      >
         Edit
       </button>
     </mat-card-actions>

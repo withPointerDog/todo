@@ -11,16 +11,14 @@ import {
 } from 'rxjs';
 import { ENV } from 'src/environments/environment';
 import { ITodo } from '../models/todo.model';
-import { ICategory } from '../models/category.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TodoService {
   todos$ = new BehaviorSubject<ITodo[]>([]);
-  idFromCategoryes!: ICategory['id'];
   constructor(private http: HttpClient) {}
-
+  // TODO: Create comments for Observable
   getTodos(): Observable<ITodo[]> {
     return this.todos$.asObservable().pipe(
       switchMap((todos: ITodo[]) => {
@@ -48,7 +46,41 @@ export class TodoService {
   transformTodoListItems(todos: Array<ITodo>): void {
     todos.forEach((todo: ITodo) => {
       todo.description = '';
-      todo.categoryId = 0;
+      todo.categoryId = 6;
     });
+  }
+
+  addNewTodo(
+    title: ITodo['title'],
+    description: ITodo['description'],
+    categoryId: ITodo['categoryId']
+  ): void {
+    const newTodo: ITodo = {
+      userId: 1,
+      id: 0,
+      title,
+      categoryId,
+      completed: false,
+      description,
+    };
+    const todos = [...this.todos$.value, newTodo];
+    this.todos$.next(todos);
+  }
+
+  removeTodo(id: ITodo['id']): void {
+    const todos = this.todos$.value;
+    const indexTodo = todos.findIndex((todo) => todo.id === id);
+    todos.splice(indexTodo, 1);
+    this.todos$.next(todos);
+  }
+
+  changeTodoStatus(id: ITodo['id']): ITodo['completed'] | null {
+    const todos = this.todos$.value;
+    this.todos$.next(todos);
+    const todo = todos.find((todo) => todo.id === id);
+    if (todo) {
+      return (todo.completed = !todo.completed);
+    }
+    return null;
   }
 }

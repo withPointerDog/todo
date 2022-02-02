@@ -12,13 +12,5 @@ export enum CategoryTitle {
   LEARN = 'Learn',
   DOGS = 'Dogs',
   AUTO = 'Auto',
-  UNKNOWN = 'Unknown'
-}
-
-export enum CategoryId {
-  WORK,
-  GYM,
-  LEARN,
-  DOGS,
-  AUTO,
+  UNKNOWN = 'Unknown',
 }
